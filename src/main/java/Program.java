@@ -58,7 +58,7 @@ public class Program {
         return (double) totalAge / people.size();
     }
 
-    private static int findOldestAge(List<Person> people) {
+    /*private static int findOldestAge(List<Person> people) {
         int maxAge = Integer.MIN_VALUE;
         System.out.println(maxAge);
         for (Person person : people) {
@@ -67,6 +67,12 @@ public class Program {
             }
         }
         return maxAge;
+    }*/
+    private static int findOldestAge(List<Person> people) {
+        int maxAge = people.stream()
+                .map(Person::getAge)
+                .reduce(0, Integer::max);
+                return maxAge;
     }
 
     private static int findYoungestAge(List<Person> people) {
